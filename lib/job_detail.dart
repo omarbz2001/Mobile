@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'principale.dart';
 void main() {
   runApp(MyApp());
 }
@@ -9,12 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Job_details',
-      home: job(),
+      home: job_detail(),
     );
   }
 }
 
-class job extends StatelessWidget {
+class job_detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,10 +58,19 @@ class job extends StatelessWidget {
                         child: SizedBox(
                           width: 63,
                           height: 32,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color(0xff284e7b),
+                          child: GestureDetector(
+                            onTap: () {
+                              // Navigate to the second screen when the image is tapped
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => principale()),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Color(0xff284e7b),
+                              ),
                             ),
                           ),
                         ),
